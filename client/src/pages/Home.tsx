@@ -1,11 +1,12 @@
 import { useState, useCallback } from 'react';
+import { Link } from 'wouter';
 import { BIBLE_BOOKS } from '@/data/bibleBooks';
 import { useReadingProgress } from '@/hooks/useReadingProgress';
 import BibleBookItem from '@/components/BibleBookItem';
 import ProgressTracker from '@/components/ProgressTracker';
 import MotivationalMessage from '@/components/MotivationalMessage';
 import { Button } from '@/components/ui/button';
-import { BookOpen, RotateCcw } from 'lucide-react';
+import { BookOpen, RotateCcw, BookOpenCheck } from 'lucide-react';
 
 export default function Home() {
   const {
@@ -46,11 +47,22 @@ export default function Home() {
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-4 py-6">
-          <div className="flex items-center gap-3 mb-2">
-            <BookOpen className="w-8 h-8 text-blue-600" />
-            <h1 className="text-3xl font-bold text-gray-900">Bible Reading Tracker</h1>
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <BookOpen className="w-8 h-8 text-blue-600" />
+                <h1 className="text-3xl font-bold text-gray-900">Bible Reading Tracker</h1>
+              </div>
+              <p className="text-gray-600">Track your journey through all 66 books of the Bible</p>
+            </div>
+            
+            <Link href="/read">
+              <Button className="gap-2" size="lg">
+                <BookOpenCheck className="w-5 h-5" />
+                Read the Bible
+              </Button>
+            </Link>
           </div>
-          <p className="text-gray-600">Track your journey through all 66 books of the Bible</p>
         </div>
       </header>
 
